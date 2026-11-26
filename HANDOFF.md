@@ -38,27 +38,26 @@
 | 공개 | GitHub 공개 레포 + 노션 공개 페이지. 면접 답변 · 이력서는 노션 비공개 영역 |
 | 회사 정보 | 회사 코드 · 에셋 · 내부 정보는 레포, 노션, 외부 AI 어디에도 넣지 않는다 |
 | Lyra | 교재로만 쓴다. 공개 레포에는 Lyra 패턴을 참고해 직접 작성한 코드만 |
-| 원본 | GitHub `ai-gamedev-roadmap` 레포가 원본. Claude 프로젝트 지식 파일은 그 사본 |
+| 원본 | GitHub `RainMaker3363/AI-GameDev-RoadMap` 레포(로컬 `Roadmap/ai-gamedev-roadmap`)가 원본. Claude 프로젝트 지식 파일은 그 사본 |
 
 ## 4. 현재 상태
 
-- **단계 / 위치:** 0단계 · 준비 (11/25~27) 진행 중. 이제부터 Claude Code에서 이어 간다
-- **설치 완료 (사용자 보고):**
-  - UE 5.8 런처 엔진 → `C:/GameDev/Engines/UE_5.8` (엔진 소스 · 디버깅 심볼 옵션은 확인 필요)
-  - VS 2026 + MSVC 14.50 (설치 폴더에서 확인함). "Unreal Engine 설치 관리자" 구성 요소는 런처 실행 중 1603 오류로 빼고 설치
-  - Git 2.56.1, Git LFS 3.8.1, Git Bash 경로 정상
-  - Rider (공식 설치 파일), Lyra 5.8 프로젝트 생성
-  - 노션 "언리얼 × AI 개발 일지"(메인 + DB 4개 + 1주차 일지 초안)와 "개인 게임 프로젝트" 페이지 생성 (비공개 초안)
-- **확인 필요 (Claude Code가 명령으로 점검):**
-  - `git config --global` 설정 (user.name / user.email / core.longpaths / init.defaultBranch, `git lfs install`). 11/25 점검 때는 core.editor만 있었다
-  - LongPathsEnabled (11/25 점검 때 0)
-  - Lyra 위치가 `C:/GameDev/Reference/LyraStarterGame`인지, 엔진 `Engine/Source`와 `.pdb` 존재
-  - Python 3.13, VS Code, Claude Code 설치 여부
+- **단계 / 위치:** 0단계 · 준비 완료 (11/26). 다음은 D1
+- **설치 완료 (11/26 Claude Code가 명령으로 점검):**
+  - UE 5.8.4 런처 엔진 → `C:/GameDev/Engines/UE_5.8` (엔진 소스 · 디버깅 심볼 확인)
+  - VS 2026 Community 18.12.1 + MSVC 14.50 (14.52도 설치돼 있지만 UBT는 14.50.35740 선택. 첫 빌드 로그로 확인). "Unreal Engine 설치 관리자" 구성 요소는 런처 실행 중 1603 오류로 빼고 설치
+  - Git 2.56.1, Git LFS 3.8.1, Git 전역 설정 완료 (noreply 이메일, longpaths, defaultBranch main, lfs install), LongPathsEnabled 1
+  - Python 3.13.17, VS Code 1.148
+  - Rider (공식 설치 파일). RiderLink는 엔진이 아니라 프로젝트(`Plugins/Developer/RiderLink`)에 설치됨 → Lyra `.gitignore`로 제외
+  - 노션 "언리얼 × AI 개발 일지"(메인 + DB 4개 + 1주차 일지 초안)와 "개인 게임 프로젝트" 페이지 생성 (비공개 초안, 사용자 보고)
+- **확인 필요:**
+  - Claude Code CLI가 PATH에 없음 (데스크톱 앱으로 사용 중). 필요하면 SETUP_GUIDE.md 1-5
+  - 11/26 13:47에 Lyra rules DLL이 .NET 11을 참조하게 된 원인 미확인 (devlog W01)
 - **다음 할 일:**
-  1. 로드맵 레포 생성 (SETUP_GUIDE.md 3번): 이 문서 묶음으로 첫 커밋 → GitHub 공개 레포에 push
-  2. Lyra 마무리 (SETUP_GUIDE.md 4번): `.gitignore` → 빌드(툴체인 14.50 확인) → 로컬 Git 커밋 → `CLAUDE.md` 배치 · `/add-dir` · 동작 확인 질문 → PIE 데디 확인(직접)
+  1. ~~로드맵 레포 생성~~ 완료 (11/26). 남은 것: GitHub 프로필 README 링크, Claude 프로젝트 지식 파일을 레포로 교체 (6번)
+  2. ~~Lyra 마무리~~ 완료 (11/26). 남은 것: 동작 확인 답(ASC 생성 위치 · `InitAbilityActorInfo`)을 Rider에서 직접 열고 브레이크포인트로 확인
   3. D1 (11/28 토, 복제와 RPC 실험)
-- **완료한 산출물:** 없음 (로드맵 레포 생성 전)
+- **완료한 산출물:** 로드맵 레포 https://github.com/RainMaker3363/AI-GameDev-RoadMap (첫 커밋 0ea4584), Lyra 로컬 Git (0412ca7), Lyra 빌드(Development · DebugGame Editor), PIE 데디(서버 1 + 클라 2) 확인
 - **막힌 점 / 결정 대기:** IDE 주력(Rider 추천)은 아직 확정 전
 - **최근 AI 실패에서 생긴 규칙:** 없음
 
@@ -74,6 +73,7 @@
 | CLAUDE_Lyra.md | Lyra 폴더에 `CLAUDE.md`로 넣는 규칙 (0단계 1~2주차) | Claude Code |
 | CLAUDE_GasDediSample.md | 미니 프로젝트에 `CLAUDE.md`로 넣는 규칙 (0단계 3주차~) | Claude Code |
 | CLAUDE.md (레포 루트) | 로드맵 레포에서 Claude Code가 따르는 규칙 | Claude Code |
+| CLAUDE_GameDev.md | `C:/GameDev/CLAUDE.md`(공통 규칙)의 원본 | Claude Code |
 | devlog/W01.md ... | 세션 로그 (레포에만 존재) | Claude Code가 작성 |
 
 - 같은 내용의 Claude 문서 "AI 활용 제너럴리스트 로드맵"(https://claude.ai/artifact/98AcLan6u1ZeUGA7S1uy5D)은 보기용이다. 내용이 다르면 **ROADMAP.md가 기준**이다.
@@ -83,12 +83,12 @@
 같은 파일을 두 곳에서 보되, 고치는 곳은 하나(레포)로 둔다.
 
 ```
-Claude Code (로컬 레포 수정) ── push ──▶ GitHub ai-gamedev-roadmap ── Sync ──▶ Claude 프로젝트 '개인 개발'
+Claude Code (로컬 레포 수정) ── push ──▶ GitHub AI-GameDev-RoadMap ── Sync ──▶ Claude 프로젝트 '개인 개발'
 Claude 프로젝트 (계획 변경)  ── 바뀐 md 받기 ──▶ 로컬 레포에 반영 ── push ──▶ (위와 동일)
 ```
 
 1. **레포 생성 전:** 이 파일들을 Claude 프로젝트에 직접 업로드해서 쓴다.
-2. **레포 생성 후:** 프로젝트 지식에서 직접 올린 파일을 지우고, "+" → GitHub로 `ai-gamedev-roadmap` 레포의 md 파일과 `devlog/`를 추가한다. 이후 푸시할 때마다 프로젝트에서 **Sync**를 누른다 (자동 동기화 아님).
+2. **레포 생성 후:** 프로젝트 지식에서 직접 올린 파일을 지우고, "+" → GitHub로 `AI-GameDev-RoadMap` 레포의 md 파일과 `devlog/`를 추가한다. 이후 푸시할 때마다 프로젝트에서 **Sync**를 누른다 (자동 동기화 아님).
 3. Claude Code는 레포 파일을 직접 고친다: 체크박스, `devlog/`, 이 문서의 "4. 현재 상태".
 4. Claude 프로젝트 대화에서 계획을 바꾸면, 바뀐 md 파일 전체를 받아 레포에 덮어쓰고 커밋한다.
 5. 주차 끝 주간 정리 때 "4. 현재 상태"를 갱신한다. 이 문서가 최신이면 어느 쪽에서 새 대화를 열어도 바로 이어진다.

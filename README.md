@@ -7,3 +7,4 @@
 - 세션 로그: [devlog/](devlog/)
 - 환경 세팅: [SETUP_GUIDE.md](SETUP_GUIDE.md)
 - 시작일: 2026-11-26 · 엔진: Unreal Engine 5.8
+- 레포: https://github.com/RainMaker3363/AI-GameDev-RoadMap

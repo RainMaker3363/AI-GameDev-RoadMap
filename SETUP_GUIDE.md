@@ -174,7 +174,7 @@ claude doctor
 - 라이선스: **비상업 무료 라이선스**는 학습 · 오픈소스 · 취미 개발용이다. 이 로드맵(학습, 공개 레포)에는 써도 되지만 **회사 업무에는 쓰지 않는다** (회사 라이선스 사용). 비상업 라이선스는 익명 사용 통계 수집을 끌 수 없고, 1년 단위로 갱신한다
 - [ ] Rider 설치: 공식 홈페이지 설치 파일 또는 JetBrains Toolbox(`winget install JetBrains.Toolbox`) 중 하나. 기능은 같고, Toolbox는 버전 롤백이 쉽다. **둘을 함께 설치하지 않는다**
 - [ ] 첫 실행 라이선스 화면에서 **Non-Commercial Use** 선택 → JetBrains 계정 로그인
-- [ ] 엔진 설치 후 `C:/GameDev/Reference/LyraStarterGame/LyraStarterGame.uproject`를 Rider로 직접 열기 (`.sln` 불필요)
+- [ ] 엔진 설치 후 `C:/GameDev/Reference/LyraStarterGame/Lyra.uproject`를 Rider로 직접 열기 (`.sln` 불필요. 샘플의 프로젝트 파일 이름은 폴더 이름과 상관없이 `Lyra.uproject`)
 - [ ] 처음 열면 **RiderLink 플러그인이 없다는 알림**이 뜬다 → **Install to Engine** 선택
   - 엔진 쪽에 설치하면 Lyra · GasDediSample 레포에 플러그인 파일이 섞이지 않는다
   - 엔진이 `C:/GameDev/Engines`에 있어 Program Files와 달리 관리자 권한 문제가 없다
@@ -265,18 +265,20 @@ C:/GameDev/
 
 ```
 cd C:/GameDev/Roadmap
-git clone https://github.com/<아이디>/ai-gamedev-roadmap.git
+git clone https://github.com/RainMaker3363/AI-GameDev-RoadMap.git ai-gamedev-roadmap
 ```
 
 ## 4. Lyra 세팅 (준비 구간)
 
 - [ ] Fab에서 Lyra Starter Game(무료, https://www.fab.com/listings/93faede1-4434-47c0-85f1-bf27c0820ad0)을 Epic 계정으로 로그인해 "내 라이브러리에 추가" → 런처 > 언리얼 엔진 > 라이브러리 > Fab 라이브러리. **샘플은 호환되는 엔진 버전이 설치돼 있어야 목록에 나온다** (1-2 완료 후)
 - [ ] 프로젝트 생성: 버전 5.8, 위치 `C:/GameDev/Reference`, 이름 `LyraStarterGame`
-- [ ] Rider로 `LyraStarterGame.uproject` 열기 → RiderLink 설치(1-7) → `LyraEditor` · `Development Editor` · `Win64`로 빌드
+- [ ] Rider로 `Lyra.uproject` 열기 (샘플 프로젝트 파일 이름은 폴더 이름과 상관없이 `Lyra.uproject`) → RiderLink 설치(1-7) → `LyraEditor` · `Development Editor` · `Win64`로 빌드
   - VS로 할 때: `.uproject` 우클릭 > Generate Visual Studio project files → `.sln` 열기 → 같은 구성으로 빌드
 - [ ] 빌드 출력에서 MSVC 툴체인 버전 확인 (1-3)
 - [ ] 디버그 실행으로 에디터 띄우기 (디버거 연결 상태). **첫 실행 셰이더 컴파일이 매우 길다.** 밤새 켜 두는 것을 권장
 - [ ] PIE: Net Mode = Play As Client, 플레이어 2명 → 데디 서버 + 클라 2개 동작 확인
+  - 게임플레이 맵(예: `ShooterCore/Maps/L_ShooterGym`)을 연 상태에서 실행한다. 에디터 시작 맵(`L_DefaultEditorOverview`) · 프론트엔드 맵은 WorldSettings `ForceStandaloneNetMode` 때문에 Standalone으로 강제된다 (`LyraEditorEngine::PreCreatePIEInstances`, 토스트 알림만 뜨고 로그에는 안 남음)
+  - 확인: 출력 로그에 "서버가 로그인" 1번 · "클라이언트가 로그인" 2번, `LogNet: Welcomed by server`
 - [ ] **로컬 Git 초기화** (Claude Code 실험을 되돌리기 위한 안전장치. 원격 레포는 만들지 않음)
 
 Lyra는 에셋 용량이 커서 소스와 설정만 추적한다. Lyra 폴더에 아래 `.gitignore`를 만든다.
@@ -297,6 +299,11 @@ Plugins/**/Intermediate/
 # 에셋은 추적하지 않음 (블루프린트 실험을 할 때만 이 줄 제거)
 Content/
 Plugins/**/Content/
+# UAT 스크립트(Lyra.Automation) 빌드 중간 산출물
+Build/Scripts/obj/
+Build/Scripts/uatobj/
+# Rider가 프로젝트에 설치한 RiderLink (원본 Lyra가 아님)
+Plugins/Developer/RiderLink/
 .claude/settings.local.json
 ```
 
