@@ -70,6 +70,8 @@ Claude Code에는 `@ROADMAP.md D3 진행하자`처럼 날짜 라벨(D1~D9)로 �
 | 어빌리티 | AbilitySystem/Abilities/LyraGameplayAbility, AbilitySystem/LyraAbilitySet | 활성화 정책 · 그룹, 데이터 에셋으로 부여 |
 | 어트리뷰트 · 데미지 | AbilitySystem/Attributes/LyraHealthSet, Executions/LyraDamageExecution, Character/LyraHealthComponent | GE → Execution → Attribute → 사망 이벤트 |
 | 입력 | Input/LyraInputConfig, LyraInputComponent | InputAction → InputTag → 어빌리티 |
+| AbilityTask | Interaction/Tasks/AbilityTask_WaitForInteractableTargets 등, 엔진 `Abilities/Tasks/` | 어빌리티 안의 비동기 대기(몽타주 · 이벤트 · 타겟), 델리게이트로 결과 받기 |
+| GameplayCue | AbilitySystem/LyraGameplayCueManager, GameFeatures/GameFeatureAction_AddGameplayCuePath | 연출(사운드 · 파티클)을 태그로 분리, Cue 로딩 정책, 서버 → 클라 전달 |
 | 예측 · 타겟 데이터 | Weapons/LyraGameplayAbility_RangedWeapon | 클라 판정 → 서버 검증 |
 | 리플리케이션 예시 | Equipment/LyraEquipmentManagerComponent, Inventory/LyraInventoryManagerComponent | FFastArraySerializer 사용법 |
 | UI | Plugins의 CommonGame, UIExtension, Settings/LyraSettingsLocal | 기존 CommonUI 경험과 비교 |
@@ -117,11 +119,13 @@ Claude Code에는 `@ROADMAP.md D3 진행하자`처럼 날짜 라벨(D1~D9)로 �
 - [ ] LyraGameplayAbility의 활성화 정책(OnInputTriggered, WhileInputActive, OnSpawn)과 활성화 그룹
 - [ ] 입력 → 태그 → 어빌리티 경로 추적 (InputConfig, InputComponent)
 - [ ] TagRelationshipMapping (어빌리티 간 차단 · 취소)
+- [ ] AbilityTask: 어빌리티가 몽타주 · 이벤트 · 입력을 기다리는 방식 (엔진 `AbilityTask.h`, Lyra `AbilityTask_WaitForInteractableTargets`). Task가 어빌리티 종료와 함께 정리되는 흐름
 
 **D6 · 12/3(목), 2시간: 이펙트와 데미지**
 
 - [ ] GameplayEffect 3종(Instant, Duration, Infinite), Stacking, Modifier vs Execution
 - [ ] 데미지 경로를 그림으로: 히트 → GE → DamageExecution → HealthSet → HealthComponent → 사망
+- [ ] GameplayCue: GE · 어빌리티에서 Cue 태그로 연출을 트리거하는 경로, Notify 종류(Static · Actor), 서버에서 클라로 전달되는 방식, Lyra Cue 매니저의 로딩 정책 (`LyraGameplayCueManager`)
 
 **D7 · 12/4(금), 2시간: 예측**
 
@@ -139,7 +143,7 @@ Claude Code에는 `@ROADMAP.md D3 진행하자`처럼 날짜 라벨(D1~D9)로 �
 **D9 · 12/6(일), 2시간: 입사 준비 정리 (가볍게)**
 
 - [ ] "GAS · 데디 치트시트" 1장: 클래스 관계도, 서버/클라 실행 위치 판별법, 자주 쓰는 디버그 명령
-- [ ] 치트시트에 "새 프로젝트 코드에서 먼저 볼 곳" 추가: ASC 위치, 어빌리티 부여 방식, 태그 체계, 예측 사용 범위, 데미지 처리 경로
+- [ ] 치트시트에 "새 프로젝트 코드에서 먼저 볼 곳" 추가: ASC 위치, 어빌리티 부여 방식, 태그 체계, 예측 사용 범위, 데미지 처리 경로, 자주 쓰는 AbilityTask, GameplayCue 구성
 - [ ] AI 실패 노트 정리, 2주차 주간 일지
 - [ ] 입사 전 스프린트 회고
 
