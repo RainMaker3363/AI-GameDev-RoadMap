@@ -416,12 +416,12 @@ git push -u origin main
 
 ## 8. D1(11/28) 시작 전 최종 체크
 
-- [ ] 로드맵 레포 공개, 시작일 기입
-- [ ] 첫 빌드 로그의 MSVC 툴체인이 14.50(또는 14.44)
-- [ ] Lyra 빌드 · PIE 데디 동작, 로컬 Git 커밋 완료
+- [x] 로드맵 레포 공개, 시작일 기입
+- [x] 첫 빌드 로그의 MSVC 툴체인이 14.50(또는 14.44)
+- [x] Lyra 빌드 · PIE 데디 동작, 로컬 Git 커밋 완료
 - [ ] Lyra 폴더에서 Claude Code 실행, `/add-dir` 2개 추가, 동작 확인 질문 통과
-- [ ] (선택) 노션 메인 페이지와 DB 4개 생성 (NOTION_GUIDE.md). 늦어도 1주차 주간 일지(11/29) 전까지
-- [ ] 첫 세션 로그 `devlog/W01.md` 생성 확인
+- [x] (선택) 노션 메인 페이지와 DB 4개 생성 (NOTION_GUIDE.md). 늦어도 1주차 주간 일지(11/29) 전까지
+- [x] 첫 세션 로그 `devlog/W01.md` 생성 확인
 
 **PC 세팅이 늦어져 Lyra가 D1까지 준비되지 않으면:** D1(복제 · RPC 실험)은 Lyra 없이도 된다. 빈 C++ 프로젝트(Third Person)에서 진행하고, 실험 코드는 나중에 Lyra의 `exp/replication-basics`로 옮긴다.
 
