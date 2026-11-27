@@ -419,7 +419,7 @@ git push -u origin main
 - [x] 로드맵 레포 공개, 시작일 기입
 - [x] 첫 빌드 로그의 MSVC 툴체인이 14.50(또는 14.44)
 - [x] Lyra 빌드 · PIE 데디 동작, 로컬 Git 커밋 완료
-- [ ] Lyra 폴더에서 Claude Code 실행, `/add-dir` 2개 추가, 동작 확인 질문 통과
+- [x] Lyra 폴더에서 Claude Code 실행, `/add-dir` 2개 추가, 동작 확인 질문 통과
 - [x] (선택) 노션 메인 페이지와 DB 4개 생성 (NOTION_GUIDE.md). 늦어도 1주차 주간 일지(11/29) 전까지
 - [x] 첫 세션 로그 `devlog/W01.md` 생성 확인
 

@@ -82,7 +82,7 @@ Claude Code에는 `@ROADMAP.md D3 진행하자`처럼 날짜 라벨(D1~D9)로 �
 - [x] Windows 기본 세팅 → 엔진 5.8 다운로드 시작(엔진 소스 · 디버깅 심볼 포함), 그동안 VS 2026(MSVC 14.50) · Git · Claude Code 설치 (SETUP_GUIDE.md 1번) (11/26, Claude Code는 데스크톱 앱 사용)
 - [x] 로드맵 레포 생성 (SETUP_GUIDE.md 3번) (11/26)
 - [x] Lyra 5.8 빌드 · PIE(Play As Client, 2명) 확인, 로컬 Git 커밋 (SETUP_GUIDE.md 4번) (11/26)
-- [ ] Lyra 폴더에 `CLAUDE_Lyra.md`를 `CLAUDE.md`로 배치, 엔진 GAS 소스 `/add-dir`, 동작 확인 질문
+- [x] Lyra 폴더에 `CLAUDE_Lyra.md`를 `CLAUDE.md`로 배치, 엔진 GAS 소스 `/add-dir`, 동작 확인 질문 (11/27, 브레이크포인트로 확인)
 - [x] (선택) 노션 메인 · DB 생성 → "언리얼 × AI 개발 일지" (11/26, 비공개 초안)
 
 ### 1주차 · 11/28(토)~11/29(일): 리플리케이션 기초
