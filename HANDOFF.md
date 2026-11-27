@@ -42,7 +42,7 @@
 
 ## 4. 현재 상태
 
-- **단계 / 위치:** 0단계 · 준비 완료 (11/26). 다음은 D1
+- **단계 / 위치:** 0단계 · 준비 완료 (11/26), D1 뼈대 완료 (11/27, Lyra `exp/replication-basics`). 다음은 D1 본편 (11/28)
 - **설치 완료 (11/26 Claude Code가 명령으로 점검):**
   - UE 5.8.4 런처 엔진 → `C:/GameDev/Engines/UE_5.8` (엔진 소스 · 디버깅 심볼 확인)
   - VS 2026 Community 18.12.1 + MSVC 14.50 (14.52도 설치돼 있지만 UBT는 14.50.35740 선택. 첫 빌드 로그로 확인). "Unreal Engine 설치 관리자" 구성 요소는 런처 실행 중 1603 오류로 빼고 설치
@@ -54,12 +54,11 @@
   - Claude Code CLI가 PATH에 없음 (데스크톱 앱으로 사용 중). 필요하면 SETUP_GUIDE.md 1-5
   - 11/26 13:47에 Lyra rules DLL이 .NET 11을 참조하게 된 원인 미확인 (devlog W01)
 - **다음 할 일:**
-  1. ~~로드맵 레포 생성~~ 완료 (11/26). 남은 것: GitHub 프로필 README 링크, Claude 프로젝트 지식 파일을 레포로 교체 (6번)
-  2. ~~Lyra 마무리~~ 완료 (11/26). 남은 것: 동작 확인 답(ASC 생성 위치 · `InitAbilityActorInfo`)을 Rider에서 직접 열고 브레이크포인트로 확인
-  3. D1 (11/28 토, 복제와 RPC 실험)
-- **완료한 산출물:** 로드맵 레포 https://github.com/RainMaker3363/AI-GameDev-RoadMap (첫 커밋 0ea4584), Lyra 로컬 Git (0412ca7), Lyra 빌드(Development · DebugGame Editor), PIE 데디(서버 1 + 클라 2) 확인
+  1. D1 본편 (11/28 토): `AExpReplicationActor`에 Replicated · RepNotify · COND_OwnerOnly, RPC 3종, Owner 없는 Server RPC 실험
+  2. D2 (11/29 일): 권한과 역할, 비교 노트, 1주차 주간 일지
+- **완료한 산출물:** 로드맵 레포 https://github.com/RainMaker3363/AI-GameDev-RoadMap (첫 커밋 0ea4584), Lyra 로컬 Git (0412ca7), Lyra 빌드(Development · DebugGame Editor), PIE 데디(서버 1 + 클라 2) 확인, GitHub 프로필 README, Claude 프로젝트 컨텍스트를 GitHub 연동으로 교체 (11/27)
 - **막힌 점 / 결정 대기:** IDE 주력(Rider 추천)은 아직 확정 전
-- **최근 AI 실패에서 생긴 규칙:** 없음
+- **최근 AI 실패에서 생긴 규칙:** Lyra `CLAUDE.md`에 2줄 (엔진 브레이크포인트는 본문 첫 실행 줄, watch는 멤버 변수 · PIE 구분은 UEDPIE 월드 이름)
 
 ## 5. 파일 지도
 
