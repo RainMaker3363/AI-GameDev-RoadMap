@@ -89,10 +89,10 @@ Claude Code에는 `@ROADMAP.md D3 진행하자`처럼 날짜 라벨(D1~D9)로 �
 
 **D1 · 11/28(토), 3시간: 복제와 RPC 실험**
 
-- [ ] `exp/replication-basics` 브랜치에서 테스트 액터 생성
-- [ ] Replicated, ReplicatedUsing(RepNotify), 복제 조건(COND_OwnerOnly 등) 실험
-- [ ] RPC 3종(Server/Client/NetMulticast) 실험, Owner 없는 액터에서 Server RPC가 무시되는 것 확인
-- [ ] NetMode를 로그에 찍어 서버/클라 실행 위치 구분
+- [x] `exp/replication-basics` 브랜치에서 테스트 액터 생성
+- [x] Replicated, ReplicatedUsing(RepNotify), 복제 조건(COND_OwnerOnly 등) 실험
+- [x] RPC 3종(Server/Client/NetMulticast) 실험, Owner 없는 액터에서 Server RPC가 무시되는 것 확인
+- [x] NetMode를 로그에 찍어 서버/클라 실행 위치 구분
 
 **D2 · 11/29(일), 3시간: 권한과 역할 + 비교 노트**
 
